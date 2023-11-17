@@ -130,6 +130,11 @@ namespace Image_Editing
                     g1 = (int)(cVal * Math.Log(1 + c.G));
                     b1 = (int)(cVal * Math.Log(1 + c.B));
 
+                    // Ensure the values are within the valid color range (0-255)
+                    r1 = Math.Max(0, Math.Min(255, r1));
+                    g1 = Math.Max(0, Math.Min(255, g1));
+                    b1 = Math.Max(0, Math.Min(255, b1));
+
                     bmp.SetPixel(i, j, Color.FromArgb(r1, g1, b1));
                 }
             }
@@ -148,7 +153,7 @@ namespace Image_Editing
                 for (int j = 0; j < source.Height; j++)
                 {
                     Color c = source.GetPixel(i, j);
-                    float r1, g1, b1;
+                    int r1, g1, b1;
                     r1 = (int)(cVal * Math.Pow((c.R), alpha));
                     g1 = (int)(cVal * Math.Pow((c.G), alpha));
                     b1 = (int)(cVal * Math.Pow((c.B), alpha));
@@ -158,7 +163,7 @@ namespace Image_Editing
                     g1 = Math.Max(0, Math.Min(255, g1));
                     b1 = Math.Max(0, Math.Min(255, b1));
 
-                    bmp.SetPixel(i, j, Color.FromArgb((int)r1, (int)g1, (int)b1));
+                    bmp.SetPixel(i, j, Color.FromArgb(r1, g1, b1));
                 }
             }
 
