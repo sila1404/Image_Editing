@@ -138,10 +138,10 @@ namespace Image_Editing
         }
 
         // Power Law Function
-        private Bitmap PowerLaw(Bitmap source, float alpha)
+        private Bitmap PowerLaw(Bitmap source, int alpha)
         {
             Bitmap bmp = new Bitmap(source.Width, source.Height);
-            float cVal = float.Parse(txt_c_2.Text);
+            int cVal = int.Parse(txt_c_2.Text);
 
             for (int i = 0; i < source.Width; i++)
             {
@@ -149,16 +149,16 @@ namespace Image_Editing
                 {
                     Color c = source.GetPixel(i, j);
                     float r1, g1, b1;
-                    r1 = (float)(cVal * Math.Pow((c.R), alpha));
-                    g1 = (float)(cVal * Math.Pow((c.G), alpha));
-                    b1 = (float)(cVal * Math.Pow((c.B), alpha));
+                    r1 = (int)(cVal * Math.Pow((c.R), alpha));
+                    g1 = (int)(cVal * Math.Pow((c.G), alpha));
+                    b1 = (int)(cVal * Math.Pow((c.B), alpha));
 
                     // Ensure the values are within the valid color range (0-255)
                     r1 = Math.Max(0, Math.Min(255, r1));
                     g1 = Math.Max(0, Math.Min(255, g1));
                     b1 = Math.Max(0, Math.Min(255, b1));
 
-                    bmp.SetPixel(i, j, Color.FromArgb(r1, g1, b1));
+                    bmp.SetPixel(i, j, Color.FromArgb((int)r1, (int)g1, (int)b1));
                 }
             }
 
@@ -227,7 +227,7 @@ namespace Image_Editing
 
         private void btn_power_Click(object sender, EventArgs e)
         {
-            float alpha = float.Parse(txt_alpha.Text);
+            int alpha = int.Parse(txt_alpha.Text);
 
             pic_C = PowerLaw(pic_O, alpha);
             pictureBox1.Image = pic_C;
