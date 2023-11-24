@@ -98,9 +98,9 @@
             btn_b_w.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btn_b_w.Location = new Point(519, 120);
             btn_b_w.Name = "btn_b_w";
-            btn_b_w.Size = new Size(244, 60);
+            btn_b_w.Size = new Size(123, 60);
             btn_b_w.TabIndex = 4;
-            btn_b_w.Text = "Black_White 1";
+            btn_b_w.Text = "Black_White";
             btn_b_w.UseVisualStyleBackColor = true;
             btn_b_w.Click += btn_b_w_Click;
             // 
@@ -137,7 +137,7 @@
             btn_negative.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btn_negative.Location = new Point(519, 260);
             btn_negative.Name = "btn_negative";
-            btn_negative.Size = new Size(113, 60);
+            btn_negative.Size = new Size(243, 60);
             btn_negative.TabIndex = 8;
             btn_negative.Text = "Negative";
             btn_negative.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             // btn_invert
             // 
             btn_invert.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_invert.Location = new Point(653, 260);
+            btn_invert.Location = new Point(653, 120);
             btn_invert.Name = "btn_invert";
             btn_invert.Size = new Size(109, 60);
             btn_invert.TabIndex = 9;
@@ -182,7 +182,7 @@
             txt_c_2.Name = "txt_c_2";
             txt_c_2.Size = new Size(98, 32);
             txt_c_2.TabIndex = 15;
-            txt_c_2.Text = "1";
+            txt_c_2.Text = "10";
             // 
             // cValue2
             // 
@@ -201,7 +201,7 @@
             txt_alpha.Name = "txt_alpha";
             txt_alpha.Size = new Size(61, 32);
             txt_alpha.TabIndex = 17;
-            txt_alpha.Text = "15";
+            txt_alpha.Text = "5";
             // 
             // label4
             // 

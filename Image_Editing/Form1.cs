@@ -182,9 +182,21 @@ namespace Image_Editing
             }
         }
 
+        // Warning Box
+        private void ShowWarning(string message)
+        {
+            MessageBox.Show(message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         // Convert to Gray 1 Button
         private void btn_gray_1_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             pic_C = ConvertToGray1(pic_O);
             pictureBox1.Image = pic_C;
         }
@@ -192,6 +204,12 @@ namespace Image_Editing
         // Convert to Gray 2 Button
         private void btn_gray_2_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             pic_C = ConvertToGray2(pic_O);
             pictureBox1.Image = pic_C;
         }
@@ -199,6 +217,12 @@ namespace Image_Editing
         // Origin Button
         private void btn_origin_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             pic_C = pic_O;
             pictureBox1.Image = pic_C;
         }
@@ -206,6 +230,12 @@ namespace Image_Editing
         // Black and White Button
         private void btn_b_w_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             pic_C = BlackAndWhite(pic_O);
             pictureBox1.Image = pic_C;
         }
@@ -213,6 +243,12 @@ namespace Image_Editing
         // Negative Button
         private void btn_negative_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             pic_C = Negative(pic_O);
             pictureBox1.Image = pic_C;
         }
@@ -220,18 +256,39 @@ namespace Image_Editing
         // Invert Button
         private void btn_invert_Click(object sender, EventArgs e)
         {
-            pic_C = Invert(pic_O);
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
+            pic_C = BlackAndWhite(pic_O);
+            pic_C = Invert(pic_C);
             pictureBox1.Image = pic_C;
         }
 
+        // Log Transform Button
         private void btn_log_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             pic_C = LogTransform(pic_O);
             pictureBox1.Image = pic_C;
         }
 
+        // Power law Button
         private void btn_power_Click(object sender, EventArgs e)
         {
+            if (pic_O == null)
+            {
+                ShowWarning("Please open an image first.");
+                return;
+            }
+
             int alpha = int.Parse(txt_alpha.Text);
 
             pic_C = PowerLaw(pic_O, alpha);
